@@ -9,7 +9,7 @@ title: Reference
 
 ## Introduction
 
-YueScript is a dynamic language that compiles to Lua. And it's a [MoonScript](https://github.com/leafo/moonscript) dialect. The codes written in YueScript are expressive and extremely concise. And it is suitable for writing some changing application logic with more maintainable codes and runs in a Lua embeded environment such as games or website servers.
+YueScript is a dynamic language that compiles to Lua. And it's a [MoonScript](https://github.com/leafo/moonscript) dialect. The codes written in YueScript are expressive and extremely concise. And it is suitable for writing some changing application logic with more maintainable codes and runs in Lua embedded environments such as games or website servers.
 
 Yue (月) is the name of moon in Chinese and it's pronounced as [jyɛ].
 
@@ -134,7 +134,7 @@ require("yue")("your_yuescript_entry")
 &emsp;And this code still works when you compile "your_yuescript_entry.yue"  to "your_yuescript_entry.lua" in the same path. In the rest YueScript files just use the normal **require** or **import**. The code line numbers in error messages will also be handled correctly.
 
 * **Case 2**  
-Require YueScript module and rewite message by hand.
+Require YueScript module and rewrite message by hand.
 ```lua
 local yue = require("yue")
 local success, result = xpcall(function()
@@ -208,7 +208,7 @@ Usage: yue [options|files|directories] ...
 
 ### Common Usage
 
-Macro function is used for evaluating a string in the compile time and insert the generated codes into final compilation.
+Macro functions are used to evaluate a string at compile time and to insert generated codes into final compilation.
 
 ```moonscript
 macro PI2 = -> math.pi * 2
@@ -292,7 +292,7 @@ macro lua = (code) -> {
   type: "lua"
 }
 
--- the raw string leading and ending symbols are auto trimed
+-- the raw string leading and ending symbols are auto-trimmed
 $lua[==[
 -- raw Lua codes insertion
 if cond then
@@ -321,7 +321,7 @@ macro lua = (code) -> {
   type: "lua"
 }
 
--- the raw string leading and ending symbols are auto trimed
+-- the raw string leading and ending symbols are auto-trimmed
 $lua[==[
 -- raw Lua codes insertion
 if cond then
@@ -333,7 +333,7 @@ end
 
 ### Export Macro
 
-Macro functions can be exported from a module and get imported in another module. You have to put export macro functions in a single file to be used, and only macro definition, macro importing and macro expansion in place can be put into the macro exporting module.
+Macro functions can be exported from a module and get imported in another module. You have to put export macro functions in a single file to be used, and only macro definition, macro importing and macro expansion in-place can be put into the macro exporting module.
 ```moonscript
 -- file: utils.yue
 export macro map = (items, action) -> "[#{action} for _ in *#{items}]"
@@ -605,7 +605,7 @@ close _ = &lt;close&gt;: -> print "out of scope"
 </pre>
 </YueDisplay>
 
-* **Metatable Accessing**  
+* **Metatable Access**  
 Accessing metatable with **<>** or metamethod name surrounded by **<>** or writing some expression in **<>**.
 
 ```moonscript
@@ -731,7 +731,7 @@ a ??= false
 
 ### Implicit Object
 
-You can write a list of implicit structures that starts with the symbol **\*** inside a table block. If you are creating implicit object, the fields of the object must be with the same indent.
+You can write a list of implicit structures that starts with the symbol **\*** inside a table block. If you are creating an implicit object, the fields of the object must have the same indent.
 ```moonscript
 list =
   * 1
@@ -802,7 +802,7 @@ tb =
 
 ### Import
 
-The import statement is a syntax sugar for requiring a module or help extracting items from an imported module. The imported items are const by default.
+The import statement is syntactic sugar for requiring a module or help extracting items from an imported module. The imported items are const by default.
 
 ```moonscript
 -- used as table destructuring
